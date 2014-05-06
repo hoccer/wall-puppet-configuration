@@ -1,7 +1,7 @@
 hoccer-receiver-puppet-configuration
 ===========================
 
-## Requirements‚
+## Requirements
 
 ### OS
 
