@@ -30,7 +30,7 @@ file_line { 'urandom fix':
   path  => '/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/security/java.security',
   line  => 'securerandom.source=file:/dev/./urandom',
   match => '^securerandom.source=.*',
-  require => Package[java'],
+  require => Package['java'],
 }
 
 package { "pwgen":
