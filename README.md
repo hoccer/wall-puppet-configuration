@@ -3,11 +3,9 @@ hoccer-receiver-puppet-configuration
 
 ## Requirements
 
-### OS
-
 * Ubuntu 14.04 LTS minimal install
 
-### Installation
+## Installation
 
 The following script installs all packages, dependencies and modules required (including this repository) and applys the puppet configuration. Make sure that an appropriate ssl certificate is present to clone the required repositories.
 
@@ -41,7 +39,7 @@ puppet apply init.pp --no-report --modulepath modules --verbose
 
 ```
 
-### Vagrant
+## Vagrant
 
 An appropriate vagrant file to build a box using the installation script above could look like this (where 'provision.sh' is the name of the script above).
 
