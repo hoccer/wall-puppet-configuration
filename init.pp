@@ -22,6 +22,7 @@ define line($file, $line, $ensure = 'present') {
 
 include backuppc-client
 include deployment-user
+include hoccer-certs
 include nrpe
 include java
 

@@ -18,6 +18,13 @@ GIT
     hoccer/deployment-user (0.0.1)
 
 GIT
+  remote: git@github.com:hoccer/puppet-hoccer-certs.git
+  ref: master
+  sha: 8e0d2f0a2a4b4bdf0f3ac8a4fe73b10cabefac07
+  specs:
+    hoccer/hoccer-certs (0.0.1)
+
+GIT
   remote: git@github.com:hoccer/puppet-nrpe.git
   ref: master
   sha: 2930fe7e6f0a1138f3e0aa50a8a7086adc17d78c
@@ -35,6 +42,7 @@ GIT
 DEPENDENCIES
   hoccer/backuppc-client (>= 0)
   hoccer/deployment-user (>= 0)
+  hoccer/hoccer-certs (>= 0)
   hoccer/nrpe (>= 0)
   puppetlabs/java (>= 0)
   puppetlabs/stdlib (>= 0)
