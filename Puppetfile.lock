@@ -1,0 +1,41 @@
+FORGE
+  remote: http://forge.puppetlabs.com
+  specs:
+    puppetlabs/stdlib (4.1.0)
+
+GIT
+  remote: git@github.com:hoccer/puppet-backuppc-client.git
+  ref: master
+  sha: 4069d31f337a81b8ef429cf1e4fcf35280e9e2d0
+  specs:
+    hoccer/backuppc-client (0.0.1)
+
+GIT
+  remote: git@github.com:hoccer/puppet-deployment-user.git
+  ref: master
+  sha: fac798c8c9c7ba7662537c28ea6e020efa6b0175
+  specs:
+    hoccer/deployment-user (0.0.1)
+
+GIT
+  remote: git@github.com:hoccer/puppet-nrpe.git
+  ref: master
+  sha: 2930fe7e6f0a1138f3e0aa50a8a7086adc17d78c
+  specs:
+    hoccer/nrpe (0.0.1)
+
+GIT
+  remote: git@github.com:puppetlabs/puppetlabs-java.git
+  ref: master
+  sha: a089f326ca3a975724cb492e1606fc1261e47921
+  specs:
+    puppetlabs/java (1.1.1)
+      puppetlabs/stdlib (>= 0.1.6)
+
+DEPENDENCIES
+  hoccer/backuppc-client (>= 0)
+  hoccer/deployment-user (>= 0)
+  hoccer/nrpe (>= 0)
+  puppetlabs/java (>= 0)
+  puppetlabs/stdlib (>= 0)
+
