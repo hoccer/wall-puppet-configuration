@@ -32,6 +32,6 @@ file_line { 'urandom fix':
   require => Package['java'],
 }
 
-package { "pwgen":
-  ensure => "installed"
+package { 'pwgen':
+  ensure => 'installed'
 }
