@@ -20,19 +20,18 @@ define line($file, $line, $ensure = 'present') {
     }
 }
 
-
 include backuppc-client
 include deployment-user
 include nrpe
 include java
 
 file_line { 'urandom fix':
-  path  => '/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/security/java.security',
-  line  => 'securerandom.source=file:/dev/./urandom',
+  path => '/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/security/java.security',
+  line => 'securerandom.source=file:/dev/./urandom',
   match => '^securerandom.source=.*',
   require => Package['java'],
 }
 
 package { "pwgen":
-    ensure => "installed"
+  ensure => "installed"
 }
