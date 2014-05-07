@@ -40,3 +40,10 @@ package { 'curl':
 package { 'pwgen':
   ensure => 'installed'
 }
+
+user { 'receiver':
+  ensure => present,
+  groups => [],
+  managehome => true,
+  shell => '/bin/bash'
+}

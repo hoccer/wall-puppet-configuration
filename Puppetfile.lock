@@ -13,7 +13,7 @@ GIT
 GIT
   remote: git@github.com:hoccer/puppet-deployment-user.git
   ref: master
-  sha: fac798c8c9c7ba7662537c28ea6e020efa6b0175
+  sha: b154bef0ad874bafc1ff14339fa6e8ed5b900876
   specs:
     hoccer/deployment-user (0.0.1)
 
