@@ -35,7 +35,7 @@ cd hoccer-receiver-puppet-configuration
 librarian-puppet install
 
 # apply puppet configuration
-puppet apply init.pp --no-report --modulepath modules --verbose
+sudo puppet apply init.pp --no-report --modulepath modules --verbose
 
 ```
 
