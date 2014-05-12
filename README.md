@@ -7,11 +7,9 @@ hoccer-receiver-puppet-configuration
 
 ## Production Setup
 
-The following script installs all packages, dependencies and modules required (including this repository) and applys the puppet configuration. Make sure that an appropriate SSL certificate is present to clone the required repositories.
+The following steps install all packages, dependencies and modules required (including this repository) and apply the puppet configuration. Make sure that an appropriate SSL certificate is present to clone the required repositories.
 
 ```bash
-#!/bin/bash
-
 # install git 
 sudo apt-get -y install git-core
 
