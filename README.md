@@ -16,8 +16,11 @@ sudo apt-get -y install git-core
 # install puppet
 sudo apt-get -y install puppet
 
+# install ruby-dev
+sudo apt-get install ruby-dev
+
 # install librarian-puppet
-sudo apt-get -y install librarian-puppet
+sudo gem install librarian-puppet
 
 # checkout puppet provisioning repository and apply
 git clone git@github.com:hoccer/hoccer-receiver-puppet-configuration.git
