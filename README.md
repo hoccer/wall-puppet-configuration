@@ -5,9 +5,9 @@ hoccer-receiver-puppet-configuration
 
 * Ubuntu 14.04 LTS minimal install
 
-## Installation
+## Production Setup
 
-The following script installs all packages, dependencies and modules required (including this repository) and applys the puppet configuration. Make sure that an appropriate ssl certificate is present to clone the required repositories.
+The following script installs all packages, dependencies and modules required (including this repository) and applys the puppet configuration. Make sure that an appropriate SSL certificate is present to clone the required repositories.
 
 ```
 #!/bin/bash
@@ -39,30 +39,23 @@ puppet apply init.pp --no-report --modulepath modules --verbose
 
 ```
 
-## Vagrant
+## Development Setup
 
-An appropriate vagrant file to build a box using the installation script above could look like this (where 'provision.sh' is the name of the script above).
+The provisioning can be tested on a local VM using Vagrant as follows:
 
 ```
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
+# create VM
+vagrant up`
 
-# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
-VAGRANTFILE_API_VERSION = "2"
+# log into VM
+vagrant ssh
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.provider "virtualbox" do |v|
-    v.name = "hoccer_receiver"
-  end
-  
-  config.vm.box = "berendt/ubuntu-14.04-amd64"
+# go to shared folder on the VM
+cd /vagrant
 
-  # ssh agent support
-  config.ssh.private_key_path = [ '~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa' ]
-  config.ssh.forward_agent = true
+# install puppet modules
+librarian-puppet install
 
-  # Enable shell provisioning
-  config.vm.provision :shell, :path => "provision.sh"
-
-end
+# apply puppet configuration
+sudo puppet apply init.pp --no-report --modulepath modules --verbose
 ```
