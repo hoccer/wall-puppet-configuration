@@ -9,7 +9,7 @@ hoccer-receiver-puppet-configuration
 
 The following script installs all packages, dependencies and modules required (including this repository) and applys the puppet configuration. Make sure that an appropriate SSL certificate is present to clone the required repositories.
 
-```
+```bash
 #!/bin/bash
 
 # install git 
@@ -43,9 +43,9 @@ puppet apply init.pp --no-report --modulepath modules --verbose
 
 The provisioning can be tested on a local VM using Vagrant as follows:
 
-```
+```bash
 # create VM
-vagrant up`
+vagrant up
 
 # log into VM
 vagrant ssh
