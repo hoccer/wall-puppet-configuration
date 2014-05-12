@@ -24,7 +24,7 @@ git clone git@github.com:hoccer/hoccer-receiver-puppet-configuration.git
 cd hoccer-receiver-puppet-configuration
 
 # install puppet modules
-librarian-puppet install
+librarian-puppet install --verbose
 
 # apply puppet configuration
 sudo puppet apply init.pp --no-report --modulepath modules --verbose
@@ -46,7 +46,7 @@ vagrant ssh
 cd /vagrant
 
 # install puppet modules
-librarian-puppet install
+librarian-puppet install --verbose
 
 # apply puppet configuration
 sudo puppet apply init.pp --no-report --modulepath modules --verbose
