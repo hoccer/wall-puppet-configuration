@@ -21,12 +21,6 @@ sudo apt-get -y install puppet
 # install librarian-puppet
 sudo apt-get -y install librarian-puppet
 
-# add github to known hosts (for full automation only)
-sudo mkdir /root/.ssh
-sudo touch /root/.ssh/known_hosts
-ssh-keyscan -H "github.com" >> /root/.ssh/known_hosts
-sudo chmod 600 /root/.ssh/known_hosts
-
 # checkout puppet provisioning repository and apply
 git clone git@github.com:hoccer/hoccer-receiver-puppet-configuration.git
 cd hoccer-receiver-puppet-configuration
