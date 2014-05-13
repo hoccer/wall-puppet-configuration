@@ -1,7 +1,7 @@
 forge "http://forge.puppetlabs.com"
 
 mod 'puppetlabs/stdlib'
-mod 'puppetlabs/java', :git => 'git@github.com:puppetlabs/puppetlabs-java.git'
+mod 'puppetlabs/java'
 mod 'jfryman/nginx'
 mod 'hoccer/backuppc-client', :git => 'git@github.com:hoccer/puppet-backuppc-client.git'
 mod 'hoccer/deployment-user', :git => 'git@github.com:hoccer/puppet-deployment-user.git'
