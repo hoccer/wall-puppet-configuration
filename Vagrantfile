@@ -10,6 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.box = "berendt/ubuntu-14.04-amd64"
+  config.vm.network "forwarded_port", guest: 80, host: 8000
 
   # ssh agent support
   config.ssh.private_key_path = [ '~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa' ]
