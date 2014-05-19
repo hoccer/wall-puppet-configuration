@@ -54,5 +54,6 @@ class { 'nginx':
 
 nginx::resource::vhost { 'receiver.hoccer.de':
   listen_options => 'default_server',
-  www_root => '/home/receiver/hoccer-receiver/shared/decrypted_attachments'
+  www_root => '/home/receiver/hoccer-receiver/shared/decrypted_attachments',
+  autoindex => 'on'
 }
