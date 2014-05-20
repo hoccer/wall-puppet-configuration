@@ -4,6 +4,7 @@ hoccer-receiver-puppet-configuration
 ## Requirements
 
 * Ubuntu 14.04 LTS minimal install
+* Open Port: 80
 
 ## General Setup
 
