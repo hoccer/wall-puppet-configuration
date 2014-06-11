@@ -35,9 +35,6 @@ cd hoccer-receiver-puppet-configuration
 # install puppet modules
 librarian-puppet install --verbose
 
-# edit configuration.sh and then execute it
-source configure.sh
-
 # apply puppet configuration
 sudo -E puppet apply init.pp --no-report --modulepath modules --verbose
 ```
