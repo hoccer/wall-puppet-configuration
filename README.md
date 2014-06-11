@@ -40,6 +40,8 @@ sudo -E puppet apply init.pp --no-report --modulepath modules --verbose
 ```
 ## Development Setup
 
+To be able to ssh into the vagrant box with the deployment user on your local machine (necessary for receiver deployment), you need to make sure that your public ssh key is also provisioned as in /modules/deployment-user/manifests/install.pp
+
 The provisioning can be tested on a local VM using Vagrant as follows:
 
 ```bash
