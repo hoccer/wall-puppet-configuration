@@ -15,19 +15,10 @@ Following the steps below, most packages, dependencies and modules required (inc
 ## Production Setup
 
 ```bash
-# install git
-sudo apt-get -y install git-core
+# install dependencies
+sudo apt-get -y install git-core puppet ruby-dev make
 
-# install puppet
-sudo apt-get -y install puppet
-
-# install ruby-dev
-sudo apt-get install ruby-dev
-
-# install make if not present
-sudo apt-get install make
-
-# install librarian-puppet gem instead (you might need to reopen your terminal afterwards)
+# install librarian-puppet gem (you might need to reopen your terminal afterwards)
 sudo gem install librarian-puppet
 
 # checkout puppet provisioning repository and apply
