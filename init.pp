@@ -47,7 +47,3 @@ user { 'talk':
   managehome => true,
   shell => '/bin/bash'
 }
-
-class { 'nginx':
-  confd_purge => true
-}
