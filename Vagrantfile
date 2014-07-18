@@ -6,11 +6,11 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |v|
-    v.name = "hoccer_receiver"
+    v.name = "talk_webclient_backend"
   end
 
-  config.vm.box = "berendt/ubuntu-14.04-amd64"
-  config.vm.network "forwarded_port", guest: 80, host: 8000
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.network "forwarded_port", guest: 5000, host: 5000
 
   # ssh agent support
   config.ssh.private_key_path = [ '~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa' ]

@@ -41,7 +41,7 @@ package { 'pwgen':
   ensure => 'installed'
 }
 
-user { 'receiver':
+user { 'talk':
   ensure => present,
   groups => [],
   managehome => true,
@@ -50,10 +50,4 @@ user { 'receiver':
 
 class { 'nginx':
   confd_purge => true
-}
-
-nginx::resource::vhost { 'receiver.hoccer.de':
-  listen_options => 'default_server',
-  www_root => '/home/receiver/hoccer-receiver/shared/decrypted_attachments',
-  autoindex => 'on'
 }

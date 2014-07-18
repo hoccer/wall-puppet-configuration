@@ -1,7 +1,7 @@
-hoccer-receiver-puppet-configuration
+talk-webclient-backend-puppet-configuration
 ===========================
 
-Provides a puppet manifest with basic modules for a Jenkins Master.
+Provides a puppet manifest with basic modules for a Hoccer XO WebClient Backend.
 
 Following the steps below all packages, dependencies and modules required (including this repository) are downloaded and applied using _puppet apply_. Make sure that an appropriate SSL certificate is present to clone the required repositories from GitHub. This can be achieved by installing one manually or by using ssh [agent forwarding](https://help.github.com/articles/using-ssh-agent-forwarding). For the latter you might need to make your key available via `ssh-add -K` first.
 
@@ -29,8 +29,8 @@ sudo apt-get install make
 sudo gem install librarian-puppet
 
 # checkout puppet provisioning repository and apply
-git clone git@github.com:hoccer/hoccer-receiver-puppet-configuration.git
-cd hoccer-receiver-puppet-configuration
+git clone git@github.com:hoccer/talk-webclient-backend-puppet-configuration.git
+cd talk-webclient-backend-puppet-configuration
 
 # install puppet modules
 librarian-puppet install --verbose
@@ -40,7 +40,7 @@ sudo -E puppet apply init.pp --no-report --modulepath modules --verbose
 ```
 ## Development Setup
 
-To be able to ssh into the vagrant box with the deployment user on your local machine (necessary for receiver deployment), you need to make sure that your public ssh key is also provisioned as in /modules/deployment-user/manifests/install.pp
+To be able to ssh into the vagrant box with the deployment user on your local machine (necessary for webclient backend deployment), you need to make sure that your public ssh key is also provisioned as in /modules/deployment-user/manifests/install.pp
 
 The provisioning can be tested on a local VM using Vagrant as follows:
 
