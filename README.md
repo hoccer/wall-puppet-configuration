@@ -3,7 +3,9 @@ talk-webclient-backend-puppet-configuration
 
 Provides a puppet manifest with basic modules for a Hoccer XO WebClient Backend.
 
-Following the steps below all packages, dependencies and modules required (including this repository) are downloaded and applied using _puppet apply_. Make sure that an appropriate SSL certificate is present to clone the required repositories from GitHub. This can be achieved by installing one manually or by using ssh [agent forwarding](https://help.github.com/articles/using-ssh-agent-forwarding). For the latter you might need to make your key available via `ssh-add -K` first.
+Following the steps below, most packages, dependencies and modules required (including this repository) are downloaded and applied using _puppet apply_. Make sure that an appropriate SSL certificate is present to clone the required repositories from GitHub. This can be achieved by installing one manually or by using ssh [agent forwarding](https://help.github.com/articles/using-ssh-agent-forwarding). For the latter you might need to make your key available via `ssh-add -K` first.
+
+**NOTE:** After provisioning, the [Bouncycastle Security Provider](https://github.com/hoccer/hoccer-talk-spike/wiki/TalkTool#install-bouncycastle-as-security-provider-in-the-jre) must be **installed manually** to `/usr/lib/jvm/java-7-openjdk-amd64`.
 
 ## Requirements
 

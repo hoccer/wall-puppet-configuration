@@ -3,7 +3,7 @@ FORGE
   specs:
     puppetlabs/java (1.1.1)
       puppetlabs/stdlib (>= 0.1.6)
-    puppetlabs/stdlib (4.1.0)
+    puppetlabs/stdlib (4.3.2)
 
 GIT
   remote: git@github.com:hoccer/puppet-backuppc-client.git
@@ -15,7 +15,7 @@ GIT
 GIT
   remote: git@github.com:hoccer/puppet-deployment-user.git
   ref: master
-  sha: b154bef0ad874bafc1ff14339fa6e8ed5b900876
+  sha: fd8f8155a65420f27b8c259d29c4158ba57c68fd
   specs:
     hoccer/deployment-user (0.0.1)
 
@@ -29,7 +29,7 @@ GIT
 GIT
   remote: git@github.com:hoccer/puppet-nrpe.git
   ref: master
-  sha: 2930fe7e6f0a1138f3e0aa50a8a7086adc17d78c
+  sha: daa1f9014bd258b7f9a1e98c82a416e949439010
   specs:
     hoccer/nrpe (0.0.1)
 
