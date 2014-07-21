@@ -41,6 +41,10 @@ package { 'pwgen':
   ensure => 'installed'
 }
 
+package { 'unzip':
+  ensure => 'installed'
+}
+
 user { 'talk':
   ensure => present,
   groups => [],
