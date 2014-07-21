@@ -15,7 +15,10 @@ Following the steps below, most packages, dependencies and modules required (inc
 ## Production Setup
 
 ```bash
-# install dependencies
+# ensure that all package information are up-to-date
+sudo apt-get update
+
+# install git, puppet, ruby-dev and make if not present
 sudo apt-get -y install git-core puppet ruby-dev make
 
 # install librarian-puppet gem (you might need to reopen your terminal afterwards)
@@ -27,6 +30,9 @@ cd talk-webclient-backend-puppet-configuration
 
 # install puppet modules
 librarian-puppet install --verbose
+
+# edit and source one of the configuration files, e.g.:
+source configure_server1.sh
 
 # apply puppet configuration
 sudo -E puppet apply init.pp --no-report --modulepath modules --verbose
