@@ -33,9 +33,6 @@ cd talk-webclient-backend-puppet-configuration
 # install puppet modules
 librarian-puppet install --verbose
 
-# edit and source one of the configuration files, e.g.:
-source configure_server1.sh
-
 # apply puppet configuration
 sudo -E puppet apply init.pp --no-report --modulepath modules --verbose
 ```
