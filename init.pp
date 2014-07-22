@@ -75,6 +75,14 @@ file { '/var/www/viewer':
   group => 'www-data',
 }
 
+nginx::resource::location { '= /':
+  ensure => present,
+  vhost => 'wall.talk.hoccer.de',
+  location_custom_cfg => {
+    return => '301 /viewer/',
+  },
+}
+
 nginx::resource::location { '/api':
   ensure => present,
   vhost => 'wall.talk.hoccer.de',
