@@ -75,6 +75,13 @@ file { '/var/www/viewer':
   group => 'www-data',
 }
 
+file { '/var/www/decrypted_attachments':
+  ensure => link,
+  target => '/home/talk/webclient-backend/shared/decrypted_attachments',
+  owner => 'www-data',
+  group => 'www-data',
+}
+
 nginx::resource::location { '= /':
   ensure => present,
   vhost => 'wall.talk.hoccer.de',
@@ -84,12 +91,6 @@ nginx::resource::location { '= /':
 }
 
 nginx::resource::location { '/api':
-  ensure => present,
-  vhost => 'wall.talk.hoccer.de',
-  proxy => 'http://localhost:5000',
-}
-
-nginx::resource::location { '/decrypted_attachments':
   ensure => present,
   vhost => 'wall.talk.hoccer.de',
   proxy => 'http://localhost:5000',
