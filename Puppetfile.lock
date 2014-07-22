@@ -1,6 +1,10 @@
 FORGE
-  remote: http://forge.puppetlabs.com
+  remote: https://forgeapi.puppetlabs.com
   specs:
+    puppetlabs/apt (1.5.2)
+      puppetlabs/stdlib (>= 2.2.1)
+    puppetlabs/concat (1.1.0)
+      puppetlabs/stdlib (>= 4.0.0)
     puppetlabs/java (1.1.1)
       puppetlabs/stdlib (>= 0.1.6)
     puppetlabs/stdlib (4.3.2)
@@ -33,11 +37,22 @@ GIT
   specs:
     hoccer/nrpe (0.0.1)
 
+GIT
+  remote: git@github.com:jfryman/puppet-nginx.git
+  ref: master
+  sha: 61b569ca02e11a86c1abf647490b5f98a4aee03c
+  specs:
+    jfryman/nginx (0.0.9)
+      puppetlabs/apt (>= 1.0.0)
+      puppetlabs/concat (>= 1.1.0)
+      puppetlabs/stdlib (>= 3.0.0)
+
 DEPENDENCIES
   hoccer/backuppc-client (>= 0)
   hoccer/deployment-user (>= 0)
   hoccer/hoccer-certs (>= 0)
   hoccer/nrpe (>= 0)
+  jfryman/nginx (>= 0)
   puppetlabs/java (>= 0)
   puppetlabs/stdlib (>= 0)
 

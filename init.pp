@@ -51,3 +51,57 @@ user { 'talk':
   managehome => true,
   shell => '/bin/bash'
 }
+
+class { 'nginx':
+  confd_purge => true,
+  proxy_http_version => '1.1',
+}
+
+nginx::resource::vhost { 'wall.talk.hoccer.de':
+  ensure => present,
+  www_root => '/var/www',
+}
+
+file { '/var/www':
+  ensure => directory,
+  owner => 'www-data',
+  group => 'www-data',
+}
+
+file { '/var/www/viewer':
+  ensure => link,
+  target => '/home/talk/wall-image-viewer/current',
+  owner => 'www-data',
+  group => 'www-data',
+}
+
+nginx::resource::location { '/api':
+  ensure => present,
+  vhost => 'wall.talk.hoccer.de',
+  proxy => 'http://localhost:5000',
+}
+
+nginx::resource::location { '/decrypted_attachments':
+  ensure => present,
+  vhost => 'wall.talk.hoccer.de',
+  proxy => 'http://localhost:5000',
+}
+
+nginx::resource::map { 'connection_upgrade':
+  ensure    => present,
+  default   => 'upgrade',
+  string    => '$http_upgrade',
+  mappings  => {
+    '""' => 'close',
+  }
+}
+
+nginx::resource::location { '/updates':
+  ensure => present,
+  vhost => 'wall.talk.hoccer.de',
+  proxy => 'http://localhost:5000',
+  proxy_set_header => [
+    'Upgrade $http_upgrade',
+    'Connection $connection_upgrade',
+  ],
+}
