@@ -109,6 +109,7 @@ nginx::resource::location { '/updates':
   ensure => present,
   vhost => 'wall.talk.hoccer.de',
   proxy => 'http://localhost:5000',
+  proxy_read_timeout => 3600,
   proxy_set_header => [
     'Upgrade $http_upgrade',
     'Connection $connection_upgrade',
