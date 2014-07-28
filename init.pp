@@ -25,6 +25,7 @@ include deployment-user
 include hoccer-certs
 include nrpe
 include java
+include rvm
 
 file_line { 'urandom fix':
   path => '/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/security/java.security',
@@ -33,11 +34,11 @@ file_line { 'urandom fix':
   require => Package['java'],
 }
 
-package { 'curl':
+package { 'pwgen':
   ensure => 'installed'
 }
 
-package { 'pwgen':
+package { 'libmagickwand-dev':
   ensure => 'installed'
 }
 
@@ -50,6 +51,22 @@ user { 'talk':
   groups => [],
   managehome => true,
   shell => '/bin/bash'
+}
+
+rvm::system_user {
+  'deployment':
+    require => User['deployment'];
+  'talk':
+    require => User['talk'];
+}
+
+rvm_system_ruby { 'ruby-2.1.1':
+  ensure => 'present',
+}
+
+rvm_gemset { 'ruby-2.1.1@exif-orientation-service':
+  ensure  => present,
+  require => Rvm_system_ruby['ruby-2.1.1'];
 }
 
 class { 'nginx':
@@ -75,11 +92,24 @@ file { '/var/www/viewer':
   group => 'www-data',
 }
 
-file { '/var/www/decrypted_attachments':
+file { ['/home/talk/exif-orientation-service',
+        '/home/talk/exif-orientation-service/shared',
+        '/home/talk/exif-orientation-service/shared/images']:
+  ensure => directory,
+  owner => 'deployment',
+  group => 'deployment',
+  require => [
+    User['talk'],
+    User['deployment'],
+  ],
+}
+
+file { '/home/talk/exif-orientation-service/shared/images/decrypted_attachments':
   ensure => link,
   target => '/home/talk/webclient-backend/shared/decrypted_attachments',
-  owner => 'www-data',
-  group => 'www-data',
+  owner => 'deployment',
+  group => 'deployment',
+  require => User['talk'],
 }
 
 nginx::resource::location { '= /':
@@ -88,6 +118,12 @@ nginx::resource::location { '= /':
   location_custom_cfg => {
     return => '301 /viewer/',
   },
+}
+
+nginx::resource::location { '/decrypted_attachments':
+  ensure => present,
+  vhost => 'wall.talk.hoccer.de',
+  proxy => 'http://localhost:4567',
 }
 
 nginx::resource::location { '/api':

@@ -7,6 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |v|
     v.name = "talk_webclient_backend"
+    v.memory = 4096
   end
 
   config.vm.box = "ubuntu/trusty64"
