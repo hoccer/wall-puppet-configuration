@@ -1,7 +1,7 @@
-talk-webclient-backend-puppet-configuration
+Hoccer XO Wall Provisioning
 ===========================
 
-Provides a puppet manifest with basic modules for a Hoccer XO WebClient Backend.
+Provides a puppet manifest with basic modules for a Hoccer XO Wall.
 
 Following the steps below, most packages, dependencies and modules required (including this repository) are downloaded and applied using _puppet apply_.
 
@@ -27,8 +27,8 @@ sudo apt-get -y install git-core puppet ruby-dev make
 sudo gem install librarian-puppet --version=1.1.2
 
 # checkout puppet provisioning repository and apply
-git clone git@github.com:hoccer/talk-webclient-backend-puppet-configuration.git
-cd talk-webclient-backend-puppet-configuration
+git clone git@github.com:hoccer/wall-puppet-configuration.git
+cd wall-puppet-configuration
 
 # install puppet modules
 librarian-puppet install --verbose
@@ -38,7 +38,7 @@ sudo -E puppet apply init.pp --no-report --modulepath modules --verbose
 ```
 ## Development Setup
 
-To be able to ssh into the vagrant box with the deployment user on your local machine (necessary for webclient backend deployment), you need to make sure that your public ssh key is also provisioned as in /modules/deployment-user/manifests/install.pp
+To be able to ssh into the vagrant box with the deployment user on your local machine, you need to make sure that your public ssh key is also provisioned as in /modules/deployment-user/manifests/install.pp
 
 The provisioning can be tested on a local VM using Vagrant as follows:
 
