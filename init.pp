@@ -72,11 +72,20 @@ rvm_gemset { 'ruby-2.1.1@exif-orientation-service':
 class { 'nginx':
   confd_purge => true,
   proxy_http_version => '1.1',
+  proxy_cache_path => '/var/cache/nginx/decrypted_attachments',
+  proxy_cache_keys_zone => 'decrypted_attachments:10m',
 }
 
 nginx::resource::vhost { 'wall.talk.hoccer.de':
   ensure => present,
   www_root => '/var/www',
+}
+
+file { '/var/cache/nginx/decrypted_attachments':
+  ensure => directory,
+  owner => 'www-data',
+  group => 'root',
+  require => Class['nginx'],
 }
 
 file { '/var/www':
@@ -124,6 +133,8 @@ nginx::resource::location { '/decrypted_attachments':
   ensure => present,
   vhost => 'wall.talk.hoccer.de',
   proxy => 'http://localhost:4567',
+  proxy_cache => 'decrypted_attachments',
+  proxy_cache_valid => '24h',
 }
 
 nginx::resource::location { '/api':
