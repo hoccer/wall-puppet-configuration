@@ -101,6 +101,13 @@ file { '/var/www/viewer':
   group => 'www-data',
 }
 
+file { '/var/www/reviewer':
+  ensure => link,
+  target => '/home/talk/wall-image-reviewer/current',
+  owner => 'www-data',
+  group => 'www-data',
+}
+
 file { ['/home/talk/exif-orientation-service',
         '/home/talk/exif-orientation-service/shared',
         '/home/talk/exif-orientation-service/shared/images']:
