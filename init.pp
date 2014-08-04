@@ -141,7 +141,7 @@ nginx::resource::location { '/decrypted_attachments':
   vhost => 'wall.talk.hoccer.de',
   proxy => 'http://localhost:4567',
   proxy_cache => 'decrypted_attachments',
-  proxy_cache_valid => '24h',
+  proxy_cache_valid => '1y',
 }
 
 nginx::resource::location { '/api':
