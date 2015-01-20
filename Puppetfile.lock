@@ -1,15 +1,15 @@
 FORGE
   remote: https://forgeapi.puppetlabs.com
   specs:
-    maestrodev/rvm (1.6.1)
-      puppetlabs/stdlib (>= 3.2.0)
+    maestrodev/rvm (1.9.0)
+      puppetlabs/stdlib (>= 4.0.0)
     puppetlabs/apt (1.5.2)
       puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/concat (1.1.0)
       puppetlabs/stdlib (>= 4.0.0)
     puppetlabs/java (1.1.1)
       puppetlabs/stdlib (>= 0.1.6)
-    puppetlabs/stdlib (4.3.2)
+    puppetlabs/stdlib (4.5.1)
 
 GIT
   remote: git@github.com:hoccer/puppet-backuppc-client.git
